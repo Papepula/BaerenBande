@@ -1,1 +1,26 @@
-Cart
+
+
+
+<div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Bild</th>
+				<th>Marke</th>
+				<th>Modell</th>
+				<th>Anzahl</th>
+				<th>Preis</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in cart">
+				<!--  <td><img src="{{ item.picture }}" /></td>-->
+				<td>Image</td>
+				<td>{{item.brand}}</td>
+				<td>{{item.model}}</td>
+				<td>{{item.amount}}</td>
+				<td>{{item.price * item.amount | currency:'&euro;'}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
