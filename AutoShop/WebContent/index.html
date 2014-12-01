@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="BaerenBande">
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="lib/angular/angular.js"></script>
+<script type="text/javascript"
+	src="lib/angular-resource/angular-resource.js"></script>
+<script type="text/javascript"
+	src="lib/angular-cookies/angular-cookies.js"></script>
+<script type="text/javascript"
+	src="lib/angular-sanitize/angular-sanitize.js"></script>
+<script type="text/javascript"
+	src="lib/angular-animate/angular-animate.js"></script>
+<script type="text/javascript" src="lib/angular-touch/angular-touch.js"></script>
+<script type="text/javascript" src="lib/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="lib/jquery/jquery-1.11.1.js"></script>
+<script type="text/javascript"
+	src="lib/bootstrap-3.3.1-dist/dist/js/bootstrap.js"></script>
+<link rel="stylesheet"
+	href="lib/bootstrap-3.3.1-dist/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="css/index.css" />
+<script type="text/javascript" src="app/app.js"></script>
+
+<title>BärenBande</title>
+</head>
+
+<body id="content">
+
+
+	<div id="header" class="jumbotron">
+		
+		<div id="logo">
+			<img src=images/logo.jpg>
+		</div>
+		<div>
+			<h1>BärenBande</h1>
+		</div>
+		<p>
+			<h4>Wir haben ihr Auto. Gehen sie noch oder fahren sie schon.</h4>
+		</p>
+	</div>
+
+	<div>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+					<a class="navbar-brand" href="#">Startseite</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Suche">
+						</div>
+						<button type="submit" class="btn btn-default">Suchen</button>
+					</form>
+					<div id="divCartLogin">
+					<ul class="nav navbar-nav">
+						<li><a href="#/cart">Warenkorb</a></li>
+						<li><a href="#/login">Login</a></li>
+					</ul>
+					</div>
+			</div>
+		</nav>
+	</div>
+
+	<div id="ui-view" class="" ng-view></div>
+
+
+
+	<!-- Controllers -->
+	<script src="app/controllers/MainCtrl.js"></script>
+	<script src="app/controllers/DetailsCtrl.js"></script>
+	<script src="app/controllers/CartCtrl.js"></script>
+	<script src="app/controllers/SearchResultCtrl.js"></script>
+	<!-- Services -->
+	<script src="app/services/CartService.js"></script>
+	<script src="app/services/DetailsService.js"></script>
+	<script src="app/services/SearchResultService.js"></script>
+
+</body>
+</html>
