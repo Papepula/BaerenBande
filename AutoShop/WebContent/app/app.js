@@ -19,11 +19,11 @@ var app = angular
         templateUrl: 'views/Cart.html',
         controller: 'CartCtrl'
       })  
-      .when('/details', {
+      .when('/details/:id', {
         templateUrl: 'views/Details.html',
         controller: 'DetailsCtrl'
       })  
-      .when('/search', {
+      .when('/search/:searchText', {
         templateUrl: 'views/SearchResult.html',
         controller: 'SearchResultCtrl'
       })
