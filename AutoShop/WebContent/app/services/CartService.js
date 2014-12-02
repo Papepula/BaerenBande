@@ -1,7 +1,6 @@
 app.service('CartService', function ($http, $q) {
 	
     var LS_CART = 'BOOKSTORE_LS_CART';
-    // load data
     var cart = JSON.parse(localStorage.getItem(LS_CART));
 	   
     if (cart === null) {
@@ -12,11 +11,12 @@ app.service('CartService', function ($http, $q) {
 		getCart: getCart,
 		addCar: addCar,
 		removeCar: removeCar,
-		updateCart: updateCart
+		updateCart: updateCart,
+		decreaseAmount: decreaseAmount
 	});
 	
-	function getCart(){
-		
+	function getCart(){		
+		return cart;
 	}
 	
 	function addCar(car){
@@ -24,10 +24,9 @@ app.service('CartService', function ($http, $q) {
 		var exist = false;
 		var cartItem = carToItem(car);
 		
+		//if car already exists
 		cart.forEach(function(entry) {
-		    console.log(entry);
 		    if(entry.car.id === car.id){
-		    	console.log("blubb");
 		    	entry.amount++;
 		    	exist = true;
 		    }
@@ -36,14 +35,28 @@ app.service('CartService', function ($http, $q) {
 		if(exist == false){
 			cart.push(cartItem);
 		}
+	
+		updateCart();
+	}
+	
+	function removeCar(index){
+
+		cart.splice(index, 1)
 		
 		updateCart();
 	}
 	
-	function removeCar(){
+	function decreaseAmount(index){
+
+		cart[index].amount--;
 		
+        if (cart[index].amount === 0) {
+            removeCar(index);
+        }
+		
+		updateCart();
 	}
-	
+		
 	function carToItem(car){
         return {
             car: car,
@@ -53,6 +66,6 @@ app.service('CartService', function ($http, $q) {
 	
 	function updateCart(){
 		localStorage.setItem(LS_CART, JSON.stringify(cart));
-		console.log("updated");
 	}
+	
 });

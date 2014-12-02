@@ -1,7 +1,8 @@
+<div ng-show="cart.length == 0">
+    <h4>Ihr Warenkorb ist leer!</h4>
+</div>
 
-
-
-<div>
+<div ng-show="cart.length > 0">
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -14,12 +15,27 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="item in cart">
-				<!--  <td><img src="{{ item.picture }}" /></td>-->
-				<td>Image</td>
-				<td>{{item.brand}}</td>
-				<td>{{item.model}}</td>
-				<td>{{item.amount}}</td>
-				<td>{{item.price * item.amount | currency:'&euro;'}}</td>
+				<td><img src="{{ item.car.image }}" /></td>
+				<td>{{item.car.brand}}</td>
+				<td>{{item.car.model}}</td>
+				<td>		 
+					<button ng-click="decreaseAmount($index)" type="button" class="btn btn-primary"
+						aria-label="Left Align">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{item.amount}}
+					<button ng-click="increaseAmount(item.car)" type="button" class="btn btn-primary"
+						aria-label="Left Align">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</td>
+				<td>{{item.car.price * item.amount | currency:'&euro;'}}</td>
+				<td>		 
+					<button ng-click="removeCar($index)" type="button" class="btn btn-default"
+						aria-label="Left Align">
+						<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+					</button>
+				</td>
 			</tr>
 		</tbody>
 	</table>
