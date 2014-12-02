@@ -19,11 +19,11 @@ var app = angular
         templateUrl: 'views/Cart.html',
         controller: 'CartCtrl'
       })  
-      .when('/details', {
+      .when('/details/:id', {
         templateUrl: 'views/Details.html',
         controller: 'DetailsCtrl'
       })  
-      .when('/search', {
+      .when('/search/:searchText', {
         templateUrl: 'views/SearchResult.html',
         controller: 'SearchResultCtrl'
       })
@@ -35,6 +35,18 @@ var app = angular
           templateUrl: 'views/Register.html',
           controller: 'RegisterCtrl'
         })  
+      .when('/order', {
+          templateUrl: 'views/Order.html',
+          controller: 'OrderCtrl'
+        })  
+        .when('/confirm', {
+            templateUrl: 'views/OrderConfirm.html',
+            controller: 'OrderConfirmCtrl'
+        })
+        .when('/error', {
+            templateUrl: 'views/OrderError.html',
+            controller: 'OrderErrorCtrl'
+        })
       .otherwise({
         redirectTo: '/'
       });

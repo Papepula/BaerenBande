@@ -11,7 +11,6 @@ app.service('CartService', function ($http, $q) {
 		getCart: getCart,
 		addCar: addCar,
 		removeCar: removeCar,
-		updateCart: updateCart,
 		decreaseAmount: decreaseAmount
 	});
 	
@@ -56,7 +55,7 @@ app.service('CartService', function ($http, $q) {
 		
 		updateCart();
 	}
-		
+			
 	function carToItem(car){
         return {
             car: car,
@@ -66,6 +65,11 @@ app.service('CartService', function ($http, $q) {
 	
 	function updateCart(){
 		localStorage.setItem(LS_CART, JSON.stringify(cart));
+	}
+	
+	function clearCart(){
+        localStorage.removeItem(LS_CART);
+        cart = [];
 	}
 	
 });

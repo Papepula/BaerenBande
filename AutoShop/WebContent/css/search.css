@@ -1,0 +1,16 @@
+.image {
+	width: 150px;
+	height: 150px;
+	
+}
+.make_float{
+	float:left;
+}
+
+.car_picture_detail{
+	
+	top: 20px;
+	right: 20px;
+	float: right;
+	
+}

@@ -1,21 +1,6 @@
 app.controller('CartCtrl', function($scope, CartService) {
 
-    $scope.$on('$viewContentLoaded', function () {
-    	
-    	var item1 = {	"id": "1",
-						"brand": "BMW",
-						"model" : "M3 Limousine",
-						"price" : "50000"};
-    	
-    	
-    	var item2 = {	"id": "2",
-						"brand": "BMW",
-						"model" : "M4 Limousine",
-						"price" : "40000"};
-		
-    	
-    	CartService.addCar(item2);
-    	
+    $scope.$on('$viewContentLoaded', function () {    	
     	$scope.cart = CartService.getCart();
     });
     
@@ -31,4 +16,18 @@ app.controller('CartCtrl', function($scope, CartService) {
     	CartService.removeCar(index);
     }
     
+    $scope.addCar = function(car){
+    	CartService.addCar(car);
+    }
+    
+    $scope.getPrice = function(){
+
+    		var price = 0;
+    		
+    		$scope.cart.forEach(function(entry) {
+    			price = price + entry.amount * entry.car.price;
+    		});
+    		
+    		return price;
+    }
 });

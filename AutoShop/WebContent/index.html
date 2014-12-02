@@ -20,12 +20,14 @@
 	href="lib/bootstrap-3.3.1-dist/dist/css/bootstrap.css" />
 <link rel="stylesheet" href="css/index.css" />
 <link rel="stylesheet" href="css/cart.css" />
+<link rel="stylesheet" href="css/search.css" />
+<link rel="stylesheet" href="css/order.css" />
 <script type="text/javascript" src="app/app.js"></script>
 
 <title>BärenBande</title>
 </head>
 
-<body id="content">
+<body ng-controller="LayoutCtrl" id="content">
 
 
 	<div id="header" class="jumbotron">
@@ -58,15 +60,15 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
-					<form class="navbar-form navbar-left" role="search">
+					<form class="navbar-form navbar-left" role="search" ng-controller="SearchResultCtrl">
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Suche">
 						</div>
-						<button type="submit" class="btn btn-default">Suchen</button>
+						<button ng-submit="searchCar()" type="submit" class="btn btn-default">Suchen</button>
 					</form>
 					<div id="divCartLogin">
 					<ul class="nav navbar-nav">
-						<li><a href="#/cart">Warenkorb</a></li>
+						<li><a href="#/cart">Warenkorb <span ng-show="numberItemsCart() > 0">({{ numberItemsCart() }})</span></a></li>
 						<li><a href="#/login">Login</a></li>
 					</ul>
 					</div>
@@ -85,10 +87,15 @@
 	<script src="app/controllers/SearchResultCtrl.js"></script>
 	<script src="app/controllers/LoginCtrl.js"></script>
 	<script src="app/controllers/RegisterCtrl.js"></script>
+	<script src="app/controllers/OrderCtrl.js"></script>
+	<script src="app/controllers/LayoutCtrl.js"></script>
+	<script src="app/controllers/OrderConfirmCtrl.js"></script>
+	<script src="app/controllers/OrderErrorCtrl.js"></script>
 	<!-- Services -->
 	<script src="app/services/CartService.js"></script>
 	<script src="app/services/DetailsService.js"></script>
 	<script src="app/services/SearchResultService.js"></script>
+	<script src="app/services/OrderService.js"></script>
 
 </body>
 </html>

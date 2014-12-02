@@ -1,4 +1,5 @@
-app.controller('MainCtrl', ['$scope', function($scope) {
+app.controller('MainCtrl', function($scope) {
 		
 	$scope.willkommen = "Willkommen im AutoShop";
-}]);
+	
+});

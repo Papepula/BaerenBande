@@ -1,1 +1,17 @@
-Details
+<div ng-controller="DetailsCtrl">
+	<div class="page-header">
+		<h2>{{car.brand}} {{car.model}}</h2>
+	</div>
+	<div style="float:left">
+		<h2>Zustand: {{car.state}}<h2>
+		<h2>Preis: {{car.price}}</h2>
+		<h2>PS: 120</h2>
+		<h2>Farbe: Grün</h2>
+		<h2>Beschreibung:</h2>
+		<h4>Hier wird eine Beschreibung stehen.</h4>
+	</div>
+	<div class="car_picture_detail">
+		<img src="images/{{car.image}}" style="width: 450px; height: 300px">
+	</div>
+
+</div>
