@@ -19,7 +19,7 @@ app.service('OrderService', function ($http, $q, CartService) {
             .success(function () {
                 // succeed
                 window.location.href = "#/confirm";
-                CartService.clear();
+                CartService.clearCart();
             })
             .error(function (data) {
                 // failed

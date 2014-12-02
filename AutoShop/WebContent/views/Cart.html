@@ -2,6 +2,11 @@
     <h4>Ihr Warenkorb ist leer!</h4>
 </div>
 
+<div id="removeItem" class="alert alert-info alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <strong>{{ alertRemoveCar.car.brand}}</strong> wurde aus dem Warenkorb entfernt!
+</div>
+
 <div ng-show="cart.length > 0">
 	<table class="table table-striped">
 		<thead>

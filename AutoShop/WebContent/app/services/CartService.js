@@ -11,7 +11,8 @@ app.service('CartService', function ($http, $q) {
 		getCart: getCart,
 		addCar: addCar,
 		removeCar: removeCar,
-		decreaseAmount: decreaseAmount
+		decreaseAmount: decreaseAmount,
+		getCar: getCar
 	});
 	
 	function getCart(){		
@@ -54,6 +55,10 @@ app.service('CartService', function ($http, $q) {
         }
 		
 		updateCart();
+	}
+	
+	function getCar(index){
+		return cart[index];
 	}
 			
 	function carToItem(car){

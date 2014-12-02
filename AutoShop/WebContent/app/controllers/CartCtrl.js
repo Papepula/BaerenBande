@@ -1,7 +1,8 @@
-app.controller('CartCtrl', function($scope, CartService) {
+app.controller('CartCtrl', function($scope, CartService, $timeout) {
 
     $scope.$on('$viewContentLoaded', function () {    	
     	$scope.cart = CartService.getCart();
+    	$('#removeItem').hide();
     });
     
     $scope.increaseAmount = function(car){
@@ -13,7 +14,17 @@ app.controller('CartCtrl', function($scope, CartService) {
     }
     
     $scope.removeCar = function(index){
+    	
+    	$scope.alertRemoveCar = CartService.getCar(index);
     	CartService.removeCar(index);
+    	
+        
+
+        $('#removeItem').fadeIn();
+
+        $timeout(function () {
+            $('#removeItem').fadeOut();
+        }, 3000);
     }
     
     $scope.addCar = function(car){
