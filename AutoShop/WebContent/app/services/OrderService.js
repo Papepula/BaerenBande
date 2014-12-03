@@ -11,11 +11,15 @@ app.service('OrderService', function ($http, $q, CartService) {
     	if(cart.length < 1){
     		return;
     	}
- 
-    	var i = 1;
-    	
+
         // writes data in database
-        $http.post("api/cart", cart)
+    	$http({
+	    method: 'POST',
+	    url: 'http://localhost:8080/autoshop/api/cart',
+	    data: cart,
+	    headers: {
+	        'Content-Type': 'application/xml'
+	    }})
             .success(function () {
                 // succeed
                 window.location.href = "#/confirm";
