@@ -2,16 +2,74 @@
 	<div class="page-header">
 		<h2>{{car.brand}} {{car.model}}</h2>
 	</div>
-	<div style="float:left">
-		<h2>Zustand: {{car.state}}<h2>
-		<h2>Preis: {{car.price}}</h2>
-		<h2>PS: 120</h2>
-		<h2>Farbe: Grün</h2>
-		<h2>Beschreibung:</h2>
-		<h4>Hier wird eine Beschreibung stehen.</h4>
+	<!-- <div style="float:left">
+		<div class="make_float">
+			<h2 >Zustand:</h2> 
+			<h2 >Preis: </h2>
+			<h2 >PS: </h2>
+			<h2 >Farbe: 
+			<h2>Beschreibung:</h2>
+			<h4>Hier wird eine Beschreibung stehen.</h4>
+		</div>
+		<div>
+			<h2>{{car.state}}</h2>
+			<h2>{{car.price}}</h2>
+			<h2>120</h2>
+			</h2><h2>Grün</h2>
+		</div>
 	</div>
-	<div class="car_picture_detail">
+	 -->
+	 <div class="media">
+  <a class="media-left" href="#">
+    <img src="images/{{car.image}}" style="width: 450px; height: 300px">
+  </a>
+  <div class="media-body" style="padding-left: 20px;">
+    <div class="make_float col-xs-3">
+    	<h4>Zustand: </h4>
+   	</div>
+   	<div class="col-xs-8">
+   		<h4> {{car.state}}</h4>
+   	</div>
+	<div class="make_float col-xs-3">
+		<h4>Preis: </h4>
+	</div>
+	<div class="col-xs-8">
+		<h4> {{car.price}}</h4>
+	</div>
+	<div class="make_float col-xs-3">
+		<h4>PS: </h4>
+	</div>
+	<div class="col-xs-8">
+		<h4> 120</h4>
+	</div>
+	<div class="make_float col-xs-3">
+		<h4>Farbe: </h4>
+	</div>
+	<div class="col-xs-8">
+		<h4> Blau</h4>
+	</div>
+	<div class="col-xs-3">
+		<h4>Bewertung:</h4>
+	</div>
+	<div class="col-xs-8">
+		<img src="images/bear.png" style="width: 40px; height: 40px; float:left">
+		<img src="images/bear.png" style="width: 40px; height: 40px; float:left">
+		<img src="images/bear.png" style="width: 40px; height: 40px; float:left">
+		<img src="images/bear.png" style="width: 40px; height: 40px; float:left">
+		<img src="images/bear.png" style="width: 40px; height: 40px">
+	</div>
+	<div class="col-xs-12" style="margin-top:20px;">
+
+		<a ng-controller="CartCtrl" ng-click="addCar(car)" class="btn btn-default" role="button">In den Warenkorb</a>
+
+	</div>
+  </div>
+</div>
+<div><h3>Beschreibung: </h3></div><div><h4>Hier wird eine Beschreibung stehen.</h4></div>
+<!-- 	<div class="car_picture_detail">
 		<img src="images/{{car.image}}" style="width: 450px; height: 300px">
 	</div>
-
+ -->
 </div>
+
+
