@@ -4,10 +4,15 @@
 	margin-right: auto;
 }
 
-#logo {
+#logoDiv {
 	float: left;
 	padding-left: 50px;
 	padding-right: 50px;
+	height: 130px;
+}
+
+#logo {
+	height: 130px;
 }
 
 #header {

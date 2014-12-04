@@ -21,7 +21,8 @@ public class CartsWS {
 
 	@EJB
 	CartBS cartBS;
-		
+
+	
 	@POST
 	@Consumes(MediaType.APPLICATION_XML)
 	public void createCart(Carts carts){
@@ -36,6 +37,8 @@ public class CartsWS {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void createCart(@Context HttpServletRequest request){
 		String jsonString = getRequestBody(request);
+		
+		System.out.println(jsonString);
 		
 		JSONArray json = new JSONArray(jsonString);
 		

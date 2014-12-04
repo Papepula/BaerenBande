@@ -4,7 +4,7 @@
 
 <div id="removeItem" class="alert alert-info alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-    <strong>{{ alertRemoveCar.car.brand}}</strong> wurde aus dem Warenkorb entfernt!
+    <strong>{{ alertRemoveCar.car.brand}} {{ alertRemoveCar.car.model}}</strong> wurde aus dem Warenkorb entfernt!
 </div>
 
 <div ng-show="cart.length > 0">
@@ -20,16 +20,16 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="item in cart">
-				<td><img src="images/{{item.car.image}}" style="width:90px; height:60px"/></td>
-				<td style="vertical-align:middle">{{item.car.brand}}</td>
-				<td style="vertical-align:middle">{{item.car.model}}</td>
+				<td><a href="#/details/{{item.car.id}}"><img src="images/{{item.car.image}}" style="width:90px; height:60px"/></a></td>
+				<td style="vertical-align:middle"><a href="#/details/{{item.car.id}}">{{item.car.brand}}</a></td>
+				<td style="vertical-align:middle"><a href="#/details/{{item.car.id}}">{{item.car.model}}</a></td>
 				<td style="vertical-align:middle">		 
-					<button ng-click="decreaseAmount($index)" type="button" class="btn btn-primary"
+					<button ng-click="decreaseAmount($index)" type="button" class="btn btn-default"
 						aria-label="Left Align">
 						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 					</button>
 					{{item.amount}}
-					<button ng-click="increaseAmount(item.car)" type="button" class="btn btn-primary"
+					<button ng-click="increaseAmount(item.car)" type="button" class="btn btn-default"
 						aria-label="Left Align">
 						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 					</button>

@@ -11,10 +11,6 @@ app.service('OrderService', function ($http, $q, CartService) {
     	if(cart.length < 1){
     		return;
     	}
-    	
-    	var doc = new Document();
-    	
-    	doc.appendChild(doc.createElement("test"));
 
         // writes data in database
     	$http({
