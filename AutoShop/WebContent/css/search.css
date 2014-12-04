@@ -14,3 +14,15 @@
 	float: right;
 	
 }
+#slides_control > div{
+  height: 200px;
+}
+.carouselImage{
+  margin:auto;
+  width: 400px;
+}
+#slides_control {
+ width: 450px; 
+ height: 300px
+
+}
