@@ -16,10 +16,8 @@ app.service('OrderService', function ($http, $q, CartService) {
     	$http({
 	    method: 'POST',
 	    url: 'http://localhost:8080/autoshop/api/cart',
-	    data: cart,
-	    headers: {
-	        'Content-Type': 'application/xml'
-	    }})
+	    data: cart
+	    })
             .success(function () {
                 // succeed
                 window.location.href = "#/confirm";
