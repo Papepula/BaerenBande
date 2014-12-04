@@ -10,11 +10,15 @@ app.controller('DetailsCtrl', function($scope, $routeParams, SearchResultService
 		
 		jQuery.each($scope.car, function(i, val) {
 			if(i == "image" || i == "image2" || i == "image3"){
-				carouselImages[count] = { "image" : val};
+				carouselImages[i] = val;
 				count++;
 			}
 		});
 		
+		
+		//$scope.myInterval = 3000;
 		$scope.images = carouselImages;
+		
+		console.log($scope.images);
 	});
 });
