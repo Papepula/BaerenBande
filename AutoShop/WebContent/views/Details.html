@@ -18,11 +18,52 @@
 			</h2><h2>Grün</h2>
 		</div>
 	</div>
-	 -->
-	 <div class="media">
-  <a class="media-left" href="#">
+	
+	
+	  <a class="media-left" href="#">
     <img src="images/{{car.image}}" style="width: 450px; height: 300px">
   </a>
+	 -->
+	 
+	 
+	 <!-- 
+	 <div class="media">
+  <div style="width: 450px; height: 300px; display: table-cell;">
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in images" active="slide.active">
+        <img src="images/{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">         
+        </div>
+      </slide>
+    </carousel>
+  </div>
+  
+   -->
+   
+   <div class="row" style="width: 450px; height: 300px; display: table-cell;">
+
+	<div class="span9">
+		<div id="myCarousel" class="carousel slide">
+			<!-- Carousel slides -->
+			<div class="carousel-inner">
+				<div class="active item">
+					<img src="images/{{images.image}}">
+				</div>
+				<div class="item">
+					<img src="images/{{images.image2}}">
+				</div>
+				<div class="item">
+					<img src="images/{{images.image3}}">
+				</div>
+			</div>
+
+			<!-- Carousel nav -->
+			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&#60;</a>
+			<a class="carousel-control right" href="#myCarousel" data-slide="next">&#62;</a>
+		</div>
+	</div>
+</div>
+   
   <div class="media-body" style="padding-left: 20px;">
     <div class="make_float col-xs-3">
     	<h4>Zustand: </h4>
