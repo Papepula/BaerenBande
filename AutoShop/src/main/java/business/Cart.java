@@ -2,7 +2,12 @@ package business;
 
 import java.util.Date;
 
-public class Cart {
+import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+public class Cart extends AbstractEntity{
 
 	private String userName;
 	private String brand;
@@ -52,6 +57,7 @@ public class Cart {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	@Temporal(TemporalType.DATE)
 	public Date getDate() {
 		return date;
 	}
