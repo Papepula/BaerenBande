@@ -2,43 +2,7 @@
 	<div class="page-header">
 		<h2>{{car.brand}} {{car.model}}</h2>
 	</div>
-	<!-- <div style="float:left">
-		<div class="make_float">
-			<h2 >Zustand:</h2> 
-			<h2 >Preis: </h2>
-			<h2 >PS: </h2>
-			<h2 >Farbe: 
-			<h2>Beschreibung:</h2>
-			<h4>Hier wird eine Beschreibung stehen.</h4>
-		</div>
-		<div>
-			<h2>{{car.state}}</h2>
-			<h2>{{car.price}}</h2>
-			<h2>120</h2>
-			</h2><h2>Grün</h2>
-		</div>
-	</div>
-	
-	
-	  <a class="media-left" href="#">
-    <img src="images/{{car.image}}" style="width: 450px; height: 300px">
-  </a>
-	 -->
-	 
-	 
-	 <!-- 
-	 <div class="media">
-  <div style="width: 450px; height: 300px; display: table-cell;">
-    <carousel interval="myInterval">
-      <slide ng-repeat="slide in images" active="slide.active">
-        <img src="images/{{slide.image}}" style="margin:auto;">
-        <div class="carousel-caption">         
-        </div>
-      </slide>
-    </carousel>
-  </div>
-  
-   -->
+
    
    <div class="row" style="width: 450px; height: 300px; display: table-cell;">
 
@@ -75,7 +39,7 @@
 		<h4>Preis: </h4>
 	</div>
 	<div class="col-xs-8">
-		<h4> {{car.price}}</h4>
+		<h4> {{car.price | currency:'&euro;'}}</h4>
 	</div>
 	<div class="make_float col-xs-3">
 		<h4>PS: </h4>
