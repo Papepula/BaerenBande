@@ -11,8 +11,12 @@ app.service('OrderService', function ($http, $q, CartService) {
     	if(cart.length < 1){
     		return;
     	}
-
-        // writes data in database
+    	
+    	// add user to cart
+    	var user = {"userName" : "feb@feberston.de"};
+    	cart.push(user);
+    	
+        // posts cart to server
     	$http({
 	    method: 'POST',
 	    url: 'http://localhost:8080/autoshop/api/cart',

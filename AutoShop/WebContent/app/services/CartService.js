@@ -12,7 +12,8 @@ app.service('CartService', function ($http, $q) {
 		addCar: addCar,
 		removeCar: removeCar,
 		decreaseAmount: decreaseAmount,
-		getCar: getCar
+		getCar: getCar,
+		clearCart: clearCart
 	});
 	
 	function getCart(){		
@@ -40,9 +41,8 @@ app.service('CartService', function ($http, $q) {
 	}
 	
 	function removeCar(index){
-
-		cart.splice(index, 1)
 		
+		cart.splice(index, 1)	
 		updateCart();
 	}
 	
@@ -60,18 +60,22 @@ app.service('CartService', function ($http, $q) {
 	function getCar(index){
 		return cart[index];
 	}
-			
+	
+	// creates CartItem
 	function carToItem(car){
+		
         return {
             car: car,
             amount: 1
         };
 	}
 	
+	// writes cart into localstorage
 	function updateCart(){
 		localStorage.setItem(LS_CART, JSON.stringify(cart));
 	}
 	
+	// clear localstorage
 	function clearCart(){
         localStorage.removeItem(LS_CART);
         cart = [];
