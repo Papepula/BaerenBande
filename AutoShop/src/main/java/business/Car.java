@@ -1,7 +1,12 @@
 package business;
 
-public class Car {
-	private int id;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Car extends AbstractEntity{
+
+	//private int id;
 	private String brand;
 	private String model;
 	private String state;
@@ -15,8 +20,8 @@ public class Car {
 
 	public Car(){}
 	
-	public Car(int id, String brand, String model, String state, int horsePower, String color, double price, String description, double rating, int numberRatings){
-		this.id = id;
+	public Car(/*int id,*/ String brand, String model, String state, int horsePower, String color, double price, String description, double rating, int numberRatings){
+		//this.id = id;
 		this.brand = brand;
 		this.model = model;
 		this.state = state;
@@ -100,13 +105,13 @@ public class Car {
 		this.numberRatings = numberRatings;
 	}
 
-	public int getId() {
+/*	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}
+	}*/
 
 	@Override
 	public int hashCode() {
@@ -117,7 +122,7 @@ public class Car {
 		result = prime * result
 				+ ((description == null) ? 0 : description.hashCode());
 		result = prime * result + horsePower;
-		result = prime * result + id;
+	/*	result = prime * result + id;*/
 		result = prime * result + ((model == null) ? 0 : model.hashCode());
 		result = prime * result + numberRatings;
 		long temp;
@@ -155,8 +160,8 @@ public class Car {
 			return false;
 		if (horsePower != other.horsePower)
 			return false;
-		if (id != other.id)
-			return false;
+	/*	if (id != other.id)
+			return false;*/
 		if (model == null) {
 			if (other.model != null)
 				return false;
