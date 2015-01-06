@@ -11,6 +11,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
@@ -25,12 +26,17 @@ public class CarsWS {
 	CarBS carBS;
 
 	@GET
-	@Produces("application/json")
-	public int getCars(){
+	@Path("{searchText}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Cars getCars(@PathParam("searchText") String searchText){
 		
-		List<Car> cars = new ArrayList<Car>();
+		List<Car> foundCars = carBS.getCars(searchText);
+		Cars cars = new Cars();
+		cars.cars = foundCars;
+		/*List<Car> cars = new ArrayList<Car>();
 		cars = carBS.getCars("Peugeot");
-		
-		return cars.get(0).getId();
+		*/
+		//return cars.get(0).getId();
+		return cars;
 	}
 }

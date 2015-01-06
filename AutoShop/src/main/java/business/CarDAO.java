@@ -11,8 +11,8 @@ import javax.persistence.Query;
 @Stateless
 public class CarDAO extends AbstractDAO {
 	
-	
-	public List findByName(String searchText){
+	@SuppressWarnings("unchecked")
+	public List<Car> findByName(String searchText){
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("autoshop");
 		

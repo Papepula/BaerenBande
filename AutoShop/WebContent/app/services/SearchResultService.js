@@ -1,7 +1,7 @@
 app.service('SearchResultService', function ($http, $q) {
 	
 	var cars = [
-                [
+              /*  [
                     {
                   	  "id" : 1, "brand" : "BMW", "model" : "M5 Limousine", "state" : "Gebrauchtwagen", "price" : "40000", "image" : "bmw_m5_1.jpg",
                   	  "image2" : "bmw_m5_2.jpg", "image3" : "bmw_m5_3.jpg"
@@ -20,15 +20,38 @@ app.service('SearchResultService', function ($http, $q) {
                 	  "id" : 4, "brand" : "Ferrari", "model" : "F430", "state" : "Gebrauchtwagen", "price" : "65000", "image" : "ferrari_f430_1.jpg",
                 	  "image2" : "ferrari_f430_2.jpg", "image3" : "ferrari_f430_3.jpg"
                     }
-             	  ]
-             ]
+             	  ]*/
+             ];
 	
 	return {
 		
-		getCars : function() {
-			
-			
-			return cars;
+		getCars : function(searchText, onDataLoaded) {
+			$http.get('http://localhost:8080/autoshop/api/car/' + searchText)
+			/*
+			$http({
+			    method: 'GET',
+			    url: 'http://localhost:8080/autoshop/api/car/' + searchText,
+			    })*/
+		            .success(function (car) {
+		                // succeed
+		               // window.location.href = "#/confirm";
+		            	var count = 0;
+		            	for ( var car_index in car["cars"]){
+		            		cars[count] = [];
+		            		cars[count].push(car["cars"][car_index]);
+		            		if(cars[count].length == 2){
+		            			count++;
+		            		}
+		            	}
+		            	onDataLoaded(cars);
+		            	console.log(cars);
+		                return cars;
+		            })
+		            .error(function (data) {
+		                // failed
+		                window.location.href = "#/error";
+		            });
+			//return cars;
 		},
 		
 		getCar : function(id) {
