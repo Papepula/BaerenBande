@@ -14,6 +14,10 @@ public class CarBS {
 		return carBA.getCars(searchText);
 	}
 	
+	public Car getCarById(String id){
+		return carBA.getCarById(id);
+	}
+	
 	public void updateRatingCar(Car car){
 		carBA.updateRatingCar(car);
 	}

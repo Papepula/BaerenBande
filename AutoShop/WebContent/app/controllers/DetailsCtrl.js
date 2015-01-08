@@ -4,7 +4,12 @@ app.controller('DetailsCtrl', function($scope, $routeParams, SearchResultService
 		var carID = $routeParams.id;
 		var carouselImages = [];
 		
-		$scope.car = SearchResultService.getCar(carID);
+		SearchResultService.getCar(carID, function(data){
+			console.log(data);
+			delete data["type"];
+			console.log(data);
+			$scope.car = data;
+		});
 		
 		var count = 0;
 		
@@ -19,6 +24,6 @@ app.controller('DetailsCtrl', function($scope, $routeParams, SearchResultService
 		//$scope.myInterval = 3000;
 		$scope.images = carouselImages;
 		
-		console.log($scope.images);
+		//console.log($scope.images);
 	});
 });

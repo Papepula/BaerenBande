@@ -19,10 +19,18 @@ public class CarBA {
 	public List <Car> getCars(String searchText){
 		List<Car> results = new ArrayList<Car>();
 		results = carDAO.findByName(searchText);
-		
+		for(Car car : results){
+			System.out.println(car.getId());
+		}
 		return results;
 		//return carTrackerBA.getCars(searchText);
 		
+	}
+	
+	public Car getCarById(String id){
+		
+		Car c = carDAO.findById(id);
+		return c;
 	}
 	
 	public void updateRatingCar(Car car){

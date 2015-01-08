@@ -11,13 +11,13 @@
 			<!-- Carousel slides -->
 			<div class="carousel-inner">
 				<div class="active item">
-					<img src="images/{{images.image}}">
+					<img src="images/{{car.image}}">
 				</div>
 				<div class="item">
-					<img src="images/{{images.image2}}">
+					<img src="images/{{car.image2}}">
 				</div>
 				<div class="item">
-					<img src="images/{{images.image3}}">
+					<img src="images/{{car.image3}}">
 				</div>
 			</div>
 
@@ -45,13 +45,13 @@
 		<h4>PS: </h4>
 	</div>
 	<div class="col-xs-8">
-		<h4> 120</h4>
+		<h4> {{car.horsePower}}</h4>
 	</div>
 	<div class="make_float col-xs-3">
 		<h4>Farbe: </h4>
 	</div>
 	<div class="col-xs-8">
-		<h4> Blau</h4>
+		<h4> {{car.color}}</h4>
 	</div>
 	<div class="col-xs-3">
 		<h4>Bewertung:</h4>
@@ -70,7 +70,7 @@
 	</div>
   </div>
 </div>
-<div><h3>Beschreibung: </h3></div><div><h4>Hier wird eine Beschreibung stehen.</h4></div>
+<div><h3>Beschreibung: </h3></div><div><h4>{{car.description}}</h4></div>
 <!-- 	<div class="car_picture_detail">
 		<img src="images/{{car.image}}" style="width: 450px; height: 300px">
 	</div>

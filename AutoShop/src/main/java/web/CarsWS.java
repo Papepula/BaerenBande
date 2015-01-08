@@ -26,7 +26,7 @@ public class CarsWS {
 	CarBS carBS;
 
 	@GET
-	@Path("{searchText}")
+	@Path("search/{searchText}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Cars getCars(@PathParam("searchText") String searchText){
 		
@@ -39,4 +39,14 @@ public class CarsWS {
 		//return cars.get(0).getId();
 		return cars;
 	}
+	
+	@GET
+	@Path("getCar/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Car getCar(@PathParam("id") String id){
+		
+		Car c = carBS.getCarById(id);
+		return c;
+	}
+	
 }
