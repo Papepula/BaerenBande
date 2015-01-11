@@ -3,14 +3,15 @@ app.controller('DetailsCtrl', function($scope, $routeParams,DetailsService, Sear
 	$scope.$on('$viewContentLoaded', function () {
 		var carID = $routeParams.id;
 		var carouselImages = [];
-$scope.rate= 2.8;
+		//$scope.rate= 2.8;
 		$scope.max = 5;
 		
 		$scope.isReadonly = false;
 	
 		SearchResultService.getCar(carID, function(data){
 			
-			//$scope.rate = data.rating;
+			$scope.rate = data.rating;
+			$scope.rates = Runden2Dezimal(parseFloat(data.rating));
 			delete data["type"];
 			$scope.car = data;
 		});
@@ -22,12 +23,14 @@ $scope.rate= 2.8;
 		  };
 
 		$scope.setRating = function() {
-		    console.log($(".happy-bear").length);
 		    
-		    DetailsService.updateRating({ "id" : $scope.car["id"], "rating" : $(".happy-bear").length }, function(data){
-		    	$scope.rate=data;
-			    $scope.isReadonly = true;
-		    });
+		    if($scope.isReadonly == false){
+			    DetailsService.updateRating({ "id" : $scope.car["id"], "rating" : $(".happy-bear").length }, function(data){
+			    	
+			    	$scope.rates = Runden2Dezimal(parseFloat(data));
+				    $scope.isReadonly = true;
+			    });
+		    }
 		    
 		};
 		
@@ -46,4 +49,7 @@ $scope.rate= 2.8;
 		
 		//console.log($scope.images);
 	});
+	
+
+	function Runden2Dezimal(x) { Ergebnis = Math.round(x * 100) / 100 ; return Ergebnis; }
 });

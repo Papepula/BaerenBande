@@ -22,9 +22,9 @@ public class CarDAO extends AbstractDAO {
 		
 		Query q = em.createQuery(
 				"FROM Car AS c " +
-				"WHERE c.brand = :searchText");
+				"WHERE UPPER(c.brand) LIKE :searchText");
 		
-		q.setParameter("searchText", searchText);
+		q.setParameter("searchText", "%" + searchText.toUpperCase() + "%");
 		List<Car> list = q.getResultList();
 		//System.out.println("hoho");
 		return q.getResultList();

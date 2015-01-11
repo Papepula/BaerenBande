@@ -13,22 +13,27 @@ app.service('SearchResultService', function ($http, $q) {
 		            .success(function (car) {
 		                // succeed
 		               // window.location.href = "#/confirm";
-		            	var count = 0;
-		            	var cars = [];
-		            	cars[count] = [];
-		            	var car_count = 0;
-		            	for ( var car_index in car["cars"]){
-		            		car_count++;
-		            		cars[count].push(car["cars"][car_index]);
-		            		if(cars[count].length == 3){
-		            			count++;
-		            			cars[count] = [];
-		            		}
+		            	if(car !== undefined){
+			            	var count = 0;
+			            	var cars = [];
+			            	cars[count] = [];
+			            	var car_count = 0;
+			            	for ( var car_index in car["cars"]){
+			            		car_count++;
+			            		cars[count].push(car["cars"][car_index]);
+			            		if(cars[count].length == 3){
+			            			count++;
+			            			cars[count] = [];
+			            		}
+			            	}
+			            	
+			            	onDataLoaded(cars, car_count);
+			         
+			                return cars;
 		            	}
-		            	
-		            	onDataLoaded(cars, car_count);
-		         
-		                return cars;
+		            	else {
+		            		onDataLoaded("noHit", null);
+		            	}
 		            })
 		            .error(function (data) {
 		                // failed
@@ -41,9 +46,7 @@ app.service('SearchResultService', function ($http, $q) {
 			
 			$http.get('http://localhost:8080/autoshop/api/car/getCar/' + id)
 			
-				.success(function (car) {
-					console.log(car);
-					
+				.success(function (car) {					
 	            	callback(car);
 	         
 	                return car;

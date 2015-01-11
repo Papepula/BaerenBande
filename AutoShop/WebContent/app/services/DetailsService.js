@@ -10,9 +10,9 @@ app.service('DetailsService', function ($http, $q) {
 				.success(function (rating) {
 					console.log(rating);
 					
-	            	/*callback(rating);
+	            	callback(rating);
 	         
-	                return rating;*/
+	                return rating;
 	            })
 	            .error(function (data) {
 	                // failed

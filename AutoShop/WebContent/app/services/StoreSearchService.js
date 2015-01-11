@@ -1,16 +1,19 @@
 app.service('StoreSearchService', function ($http, $q) {
 
 	var hits = {};
+	var numberhits = 0;
 	return {
 		
 		getHits : function(callback) {
-			callback(hits);
+			
+			callback(hits, numberhits);
 			return hits;
 		},
 		
-		setHits : function(hit) {
+		setHits : function(hit, numberHits) {
+			
 			hits = hit;
-			console.log(hits);
+			numberhits = numberHits;
 		}
 	}
 
