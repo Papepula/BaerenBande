@@ -18,7 +18,7 @@ public class CarBS {
 		return carBA.getCarById(id);
 	}
 	
-	public void updateRatingCar(Car car){
-		carBA.updateRatingCar(car);
+	public String updateRatingCar(String id, String rating){
+		return carBA.updateRatingCar(id, rating);
 	}
 }

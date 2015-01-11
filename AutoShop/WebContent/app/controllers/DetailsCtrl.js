@@ -1,15 +1,35 @@
-app.controller('DetailsCtrl', function($scope, $routeParams, SearchResultService) {
+app.controller('DetailsCtrl', function($scope, $routeParams,DetailsService, SearchResultService) {
 	
 	$scope.$on('$viewContentLoaded', function () {
 		var carID = $routeParams.id;
 		var carouselImages = [];
+$scope.rate= 2.8;
+		$scope.max = 5;
 		
+		$scope.isReadonly = false;
+	
 		SearchResultService.getCar(carID, function(data){
-			console.log(data);
+			
+			//$scope.rate = data.rating;
 			delete data["type"];
-			console.log(data);
 			$scope.car = data;
 		});
+		
+		
+		$scope.hoveringOver = function(value) {
+		    $scope.overStar = value;
+		    $scope.percent = 100 * (value / $scope.max);
+		  };
+
+		$scope.setRating = function() {
+		    console.log($(".happy-bear").length);
+		    
+		    DetailsService.updateRating({ "id" : $scope.car["id"], "rating" : $(".happy-bear").length }, function(data){
+		    	$scope.rate=data;
+			    $scope.isReadonly = true;
+		    });
+		    
+		};
 		
 		var count = 0;
 		

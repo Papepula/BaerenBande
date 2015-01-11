@@ -33,8 +33,7 @@ public class CarBA {
 		return c;
 	}
 	
-	public void updateRatingCar(Car car){
-		carTrackerBA.updateRatingCar(car);
-		carDAO.persist(car);
+	public String updateRatingCar(String id, String rating){
+		return carDAO.updateRating(id, rating);
 	}
 }
