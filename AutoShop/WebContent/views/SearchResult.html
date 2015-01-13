@@ -1,6 +1,9 @@
 <div ng-controller="SearchResultCtrl">
-	<div class="alert alert-success" role="alert">
+	<div class="alert alert-success" role="alert" ng-show="hitSuccess">
 		Es wurden {{numberHits}} Treffer gefunden.
+	</div>
+	<div class="alert alert-danger" role="alert" ng-show="hitError">
+		Es wurden keine Treffer gefunden.
 	</div>
 	<div class="row" ng-repeat="hitsRow in hits">
 		<div class="colsm-6 col-md-4" ng-repeat="item in hitsRow">
@@ -17,7 +20,7 @@
 			</div>
 		</div>
 	</div>
-
+</div>
 
 
 
