@@ -2,7 +2,6 @@
 
 var app = angular
   .module('BaerenBande', [
-    'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',

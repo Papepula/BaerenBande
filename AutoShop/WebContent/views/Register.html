@@ -1,0 +1,187 @@
+<div ng-show="created">
+	<h2>Sie haben sich erfolgreich Registriert!</h2>
+	<p><a href="/autoshop/#/login">Jetzt einloggen.</a></p>
+
+</div>
+
+
+<div ng-show="!created" class="registration-container">
+	<h2>Registrieren:</h2>
+	<form class="registrationform" role="form" name="registrationform">
+		
+		<label for="user_nachname">Nachname: </label>
+        <input  type="text" 
+        		name="nachname" 
+        		class="form-control"  
+        		ng-model="user.nachname" 
+        		ng-minlength=3
+        		ng-maxlength=20 required>
+        
+        <div ng-show="registrationform.nachname.$dirty && registrationform.nachname.$invalid">
+	        <p class="error" ng-show="registrationform.nachname.$error.required">
+	        	Sie m&uuml;ssen einen g&uuml;ltigen Nachnamen eingeben.
+	        </p>
+	        <p class="error" ng-show="registrationform.nachname.$error.minlength">
+	        	Der Nachname muss mindestens 3 Zeichen lang sein.
+	        </p>
+	        <p class="error" ng-show="registrationform.nachname.$error.maxlength">
+	        	Der Nachname darf maximal 20 Zeichen lang sein.
+	        </p>
+        </div>
+                
+        
+        <label for="user_vorname">Vorname: </label>
+        <input  type="text" 
+        		name="vorname"
+        		class="form-control" 
+        		 ng-model="user.vorname"
+        		 ng-minlength=3
+        		 ng-maxlength=20 required>
+
+		<div ng-show="registrationform.vorname.$dirty && registrationform.vorname.$invalid">
+	        <p class="error" ng-show="registrationform.vorname.$error.required">
+	        	Sie m&uuml;ssen einen g&uuml;ltigen Vornamen eingeben.
+	        </p>
+	        <p class="error" ng-show="registrationform.vorname.$error.minlength">
+	        	Der Vorname muss mindestens 3 Zeichen lang sein.
+	        </p>
+	        <p class="error" ng-show="registrationform.vorname.$error.maxlength">
+	        	Der Vorname darf maximal 20 Zeichen lang sein.
+	        </p>
+        </div>
+               
+        
+        <label for="user_email">E-Mail: </label>
+        <input  type="email" 
+        		name="email" 
+        		class="form-control"  
+        		ng-model="user.email" 
+        		ng-minlength=3
+        		ng-maxlength=30 required>
+		
+		<div ng-show="registrationform.email.$dirty && registrationform.email.$invalid">
+	        <p class="error" ng-show="registrationform.email.$error.required">
+	        	Sie m&uuml;ssen eine g&uuml;ltige E-Mail Adresse eingeben.
+	        </p>
+	        <p class="error" ng-show="registrationform.email.$error.minlength">
+	        	Die Email-Adresse muss mindestens 3 Zeichen lang sein.
+	        </p>
+	        <p class="error" ng-show="registrationform.email.$error.maxlength">
+	        	Die Email-Adresse darf maximal 30 Zeichen lang sein.
+	        </p>
+	        <p class="error" ng-show="registrationform.email.$error.email">
+	        	Dies ist keine g&uuml;ltige E-Mail Adresse.
+	        </p>
+        </div>
+		
+		
+		<label for="user_strasse">Stra&szlig;e: </label>
+        <input  type="text" 
+        		name="strasse" 
+        		class="form-control"  
+        		ng-model="user.strasse"
+        		ng-minlength=3 required>
+
+		<div ng-show="registrationform.strasse.$dirty && registrationform.strasse.$invalid">
+	        <p class="error" ng-show="registrationform.strasse.$error.required">
+	        	Sie m&uuml;ssen eine g&uuml;ltige Stra&szlig;e eingeben.
+	        </p>
+	        <p class="error" ng-show="registrationform.strasse.$error.minlength">
+	        	Die Stra&szlig;e muss mindestens 3 Zeichen lang sein.
+	        </p>
+        </div>
+        
+        
+        <label for="user_hausnummer">Hausnummer: </label>
+        <input  type="text" 
+        		name="hausnummer" 
+        		class="form-control"  
+        		ng-model="user.hausnummer" required>
+        
+        <div ng-show="registrationform.hausnummer.$dirty && registrationform.hausnummer.$invalid">
+	        <p class="error" ng-show="registrationform.hausnummer.$error.required">
+	        	Sie m&uuml;ssen eine g&uuml;ltige Hausnummer eingeben.
+	        </p>
+        </div>
+        
+        
+        <label for="user_plz">PLZ: </label>
+        <input  type="text" 
+        		name="plz" 
+        		class="form-control"  
+        		ng-model="user.plz"
+        		ng-minlength=4
+        		ng-maxlength=5 required>
+        
+        <div ng-show="registrationform.plz.$dirty && registrationform.plz.$invalid">
+	        <p class="error" ng-show="registrationform.plz.$error.required">
+	        	Sie m&uuml;ssen eine g&uuml;ltige Postleitzahl eingeben.
+	        </p>
+	        <p class="error" ng-show="registrationform.plz.$error.minlength">
+	        	Die Postleitzahl muss mindestens 4 Zeichen lang sein.
+	        </p>
+	        <p class="error" ng-show="registrationform.plz.$error.maxlength">
+	        	Die Postleitzahl darf maximal 5 Zeichen lang sein.
+	        </p>
+        </div>
+        
+        
+        <label for="user_ort">Ort: </label>
+        <input  type="text" 
+        		name="ort" 
+        		class="form-control"  
+        		ng-model="user.wohnort" 
+        		ng-minlength=3 
+        		ng-minlength=50 required>
+        
+        <div ng-show="registrationform.ort.$dirty && registrationform.ort.$invalid">
+	        <p class="error" ng-show="registrationform.ort.$error.required">
+	        	Sie m&uuml;ssen einen g&uuml;ltigen Wohnort eingeben.
+	        </p>
+	        <p class="error" ng-show="registrationform.ort.$error.minlength">
+	        	Der Wohnort muss mindestens 3 Zeichen lang sein.
+	        </p>
+	        <p class="error" ng-show="registrationform.ort.$error.maxlength">
+	        	Der Wohnort darf maximal 50 Zeichen lang sein.
+	        </p>
+        </div>
+        
+        
+        <label for="user_password">Passwort: </label>
+        <input  type="password" 
+        		name="passwort" 
+        		ng-minlength=5 
+        		class="form-control" 
+        		ng-model="user.passwort" required>
+        
+        <div ng-show="registrationform.passwort.$dirty && registrationform.passwort.$invalid">
+	        <p class="error" ng-show="registrationform.passwort.$error.required">
+	        	Sie m&uuml;ssen ein g&uuml;ltiges Passwort eingeben.
+	        </p>
+	        <p class="error" ng-show="registrationform.passwort.$error.minlength">
+	        	Der Passwort muss mindestens 5 Zeichen lang sein.
+	        </p>
+        </div>
+        
+        
+        <label for="user_passwordwh">Passwort wiederholen: </label>
+        <input  type="password" 
+        		name="passwortwh"  
+        		class="form-control" 
+        		ng-model="user.passwh"
+        		compare-to="user.passwort" required>
+        
+        <div ng-show="registrationform.passwortwh.$dirty && registrationform.passwortwh.$invalid">
+	        <p class="error" ng-show="registrationform.passwortwh.$error.required">
+	        	Bitte wiederholen Sie das Passwort.
+	        </p>
+	        <p class="error" ng-show="registrationform.passwortwh.$error.compareTo">
+	        	Das wiederholte Passwort stimmt nicht &uuml;berein.
+	        </p>
+        </div>
+		<br>
+		<p class="error">{{registerMessage}}</p>
+        <br>
+        <button class="btn btn-default" type="submit" ng-click="register(user)" ng-disabled="registrationform.$invalid">Registrieren</button>
+	</form>
+</div>
