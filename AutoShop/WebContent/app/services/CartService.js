@@ -75,7 +75,7 @@ app.service('CartService', function ($http, $q) {
 		localStorage.setItem(LS_CART, JSON.stringify(cart));
 	}
 	
-	// clear localstorage
+	// clears localstorage
 	function clearCart(){
         localStorage.removeItem(LS_CART);
         cart = [];

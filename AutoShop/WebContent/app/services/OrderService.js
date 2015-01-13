@@ -13,9 +13,11 @@ app.service('OrderService', function ($http, $q, CartService, $cookieStore) {
     	}
     	
     	if($cookieStore.get('loginState') == 'true'){
+    		
     		// add user to cart
     		user = {"userName" : $cookieStore.get('email')};
     		cart.push(user);
+    		
             // posts cart to server
         	$http({
     	    method: 'POST',

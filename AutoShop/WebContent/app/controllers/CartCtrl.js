@@ -17,9 +17,6 @@ app.controller('CartCtrl', function($scope, CartService, $timeout) {
     	
     	$scope.alertRemoveCar = CartService.getCar(index);
     	CartService.removeCar(index);
-    	
-        
-
         $('#removeItem').fadeIn();
 
         $timeout(function () {
@@ -32,13 +29,10 @@ app.controller('CartCtrl', function($scope, CartService, $timeout) {
     }
     
     $scope.getPrice = function(){
-
-    		var price = 0;
-    		
+    		var price = 0;  		
     		$scope.cart.forEach(function(entry) {
     			price = price + entry.amount * entry.car.price;
-    		});
-    		
+    		}); 		
     		return price;
     }
 });
