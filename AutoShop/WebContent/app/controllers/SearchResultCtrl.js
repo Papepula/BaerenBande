@@ -1,16 +1,34 @@
-app.controller('SearchResultCtrl', function($scope, $location, SearchResultService) {
+app.controller('SearchResultCtrl', function($scope, $location,$routeParams, SearchResultService, StoreSearchService) {
 
-	$scope.numberHits = 5;
+	$scope.$on('$viewContentLoaded', function () {    	
+		$scope.hitError = false;
+		$scope.hitSuccess = false;
+	});
 	
-	$scope.searchCar = function() {
-		console.log($scope.searchText);
-		$location.path('/search/' + $scope.searchText);
-	}
-	$scope.hits = SearchResultService.getCars();
-	/*SearchResultService.getCars(searchString, function(data) {
-		//Hits from DB
-		$scope.data
-		$scope.numberHits = data.length;
-	});*/
+	SearchResultService.getCars($routeParams.searchText, function(hits, numberHits){
 	
+		if(hits[0].length !== 0){
+			$scope.hits = hits;
+			$scope.numberHits = numberHits;
+			$scope.hitSuccess = true;
+			$scope.hitError = false;
+		}
+		else {
+			$scope.hitSuccess = false;
+			$scope.hitError = true;
+		}
+	});
+/*	$scope.hits = StoreSearchService.getHits(function(hits, numberHits){
+		
+		if(hits[0].length !== 0){
+			$scope.hits = hits;
+			$scope.numberHits = numberHits;
+			$scope.hitSuccess = true;
+			$scope.hitError = false;
+		}
+		else {
+			$scope.hitSuccess = false;
+			$scope.hitError = true;
+		}
+	}); */
 });

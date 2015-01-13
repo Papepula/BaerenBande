@@ -14,7 +14,7 @@ public class AutoshopApplication extends Application{
 		Set<Class<?>> classes = new HashSet<Class<?>>();
 		
 		classes.add(CartsWS.class);
-		
+		classes.add(CarsWS.class);
 		return classes;
 	}
 

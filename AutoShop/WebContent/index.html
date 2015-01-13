@@ -67,9 +67,9 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
-					<form class="navbar-form navbar-left" role="search" ng-submit="searchCar()" ng-controller="SearchResultCtrl">
+					<form class="navbar-form navbar-left" role="search" ng-submit="searchCar(searchText)" ng-controller="StoreSearchCtrl">
 						<div class="form-group">
-							<input type="text" ng-model="searchText"class="form-control" placeholder="Suche">
+							<input type="text" ng-model="searchText" class="form-control" placeholder="Suche">
 						</div>
 						<button type="submit" class="btn btn-primary">Suchen</button>
 					</form>
@@ -91,6 +91,7 @@
 	<script src="app/controllers/MainCtrl.js"></script>
 	<script src="app/controllers/DetailsCtrl.js"></script>
 	<script src="app/controllers/CartCtrl.js"></script>
+	<script src="app/controllers/StoreSearchCtrl.js"></script>
 	<script src="app/controllers/SearchResultCtrl.js"></script>
 	<script src="app/controllers/LoginCtrl.js"></script>
 	<script src="app/controllers/RegisterCtrl.js"></script>
@@ -103,6 +104,7 @@
 	<script src="app/services/DetailsService.js"></script>
 	<script src="app/services/SearchResultService.js"></script>
 	<script src="app/services/OrderService.js"></script>
+	<script src="app/services/StoreSearchService.js"></script>
 
 </body>
 </html>
