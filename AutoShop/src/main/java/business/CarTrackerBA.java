@@ -3,6 +3,9 @@ package business;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Stateful;
+
+@Stateful
 public class CarTrackerBA {
 	private List<Car> cars;
 
@@ -39,13 +42,13 @@ public class CarTrackerBA {
 		return null;
 	}
 	
-	public void updateRatingCar (int rating, int id){
+	public void updateRatingCar (Car car){
 		
 		double updatedRating;
 		
 		for (Car c : cars) {
-			if(c.getId() == id){
-				updatedRating = ((c.getRating() * c.getNumberRatings()) + rating) / (c.getNumberRatings() + 1); 
+			if(c.getId() == car.getId()){
+				updatedRating = ((c.getRating() * c.getNumberRatings()) + car.getRating()) / (c.getNumberRatings() + 1); 
 				c.setRating(updatedRating);
 				c.setNumberRatings(c.getNumberRatings() + 1);
 			}

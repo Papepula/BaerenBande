@@ -13,4 +13,8 @@ public class CarBS {
 	public List<Car> getCars(String searchText){
 		return carBA.getCars(searchText);
 	}
+	
+	public void updateRatingCar(Car car){
+		carBA.updateRatingCar(car);
+	}
 }

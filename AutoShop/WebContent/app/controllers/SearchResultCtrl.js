@@ -1,16 +1,10 @@
-app.controller('SearchResultCtrl', function($scope, $location, SearchResultService) {
+app.controller('SearchResultCtrl', function($scope, $location, SearchResultService, StoreSearchService) {
 
-	$scope.numberHits = 5;
 	
-	$scope.searchCar = function() {
-		console.log($scope.searchText);
-		$location.path('/search/' + $scope.searchText);
-	}
-	$scope.hits = SearchResultService.getCars();
-	/*SearchResultService.getCars(searchString, function(data) {
-		//Hits from DB
-		$scope.data
-		$scope.numberHits = data.length;
-	});*/
-	
+	$scope.hits = StoreSearchService.getHits(function(hits){
+		$scope.hits = hits;
+		$scope.numberHits = hits.length;
+	}); 
+	$scope.numberHits = $scope.hits.length;
+	console.log($scope.hits);
 });

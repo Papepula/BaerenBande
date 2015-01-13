@@ -94,7 +94,10 @@ public class CartsWS {
 		
 		String brand = null;
 		String[] parts = str.split(":");
-		brand = parts[9].substring(1,parts[9].length()-10);	
+//		System.out.println("part15: " + parts[15]);
+//		System.out.println("part15 length: " + parts[15].length());
+//		System.out.println("do samma:" + (parts[15].length()-15));
+		brand = parts[15].substring(1,parts[15].length()-3);
 		return brand;
 	}
 	
@@ -102,7 +105,7 @@ public class CartsWS {
 		
 		String model = null;
 		String[] parts = str.split(":");
-		model = parts[6].substring(1,parts[6].length()-6);		
+		model = parts[12].substring(1,parts[12].length()-6);		
 		return model;
 	}
 	
@@ -110,7 +113,7 @@ public class CartsWS {
 		
 		String price = null;
 		String[] parts = str.split(":");
-		price = parts[5].substring(1,parts[5].length()-9);		
+		price = parts[11].substring(0,parts[11].length()-8);		
 		return price;
 	}
 	
