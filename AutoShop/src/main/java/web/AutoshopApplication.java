@@ -15,6 +15,8 @@ public class AutoshopApplication extends Application{
 		
 		classes.add(CartsWS.class);
 		classes.add(CarsWS.class);
+		classes.add(LoginWS.class);
+		classes.add(RegisterWS.class);
 		return classes;
 	}
 

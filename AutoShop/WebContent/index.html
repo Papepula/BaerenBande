@@ -28,6 +28,7 @@
 <link rel="stylesheet" href="css/cart.css" />
 <link rel="stylesheet" href="css/search.css" />
 <link rel="stylesheet" href="css/order.css" />
+<link rel="stylesheet" href="css/authentication.css" />
 <script type="text/javascript" src="app/app.js"></script>
 
 <title>BärenBande</title>
@@ -61,7 +62,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-					<a class="navbar-brand" href="#">Startseite</a>
+					<a class="navbar-brand" href="#/">Startseite</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -76,7 +77,10 @@
 					<div id="divCartLogin">
 					<ul class="nav navbar-nav">
 						<li><a href="#/cart">Warenkorb <span ng-show="numberItemsCart() > 0">({{ numberItemsCart() }})</span></a></li>
-						<li><a href="#/login">Login</a></li>
+						<li ng-controller="LoginCtrl">
+							<a ng-show="loginState == false" href="#/login">Login</a>
+							<a ng-show="loginState == true" ng-click="logout();" href="#/">Logout</a>
+						</li>
 					</ul>
 					</div>
 			</div>
@@ -105,6 +109,10 @@
 	<script src="app/services/SearchResultService.js"></script>
 	<script src="app/services/OrderService.js"></script>
 	<script src="app/services/StoreSearchService.js"></script>
+	<script src="app/services/RegisterService.js"></script>
+	<script src="app/services/LoginService.js"></script>
+	<!-- Directives -->
+	<script src="app/directives/compare.js"></script>
 
 </body>
 </html>

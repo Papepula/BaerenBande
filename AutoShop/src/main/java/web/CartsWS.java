@@ -1,6 +1,5 @@
 package web;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.ejb.EJB;
@@ -15,9 +14,8 @@ import javax.ws.rs.core.MediaType;
 
 import org.json.JSONArray;
 
-import business.Cart;
 import business.CartBS;
-import business.CartItem;
+
 
 @Path("/cart")
 @Stateless
@@ -34,36 +32,19 @@ public class CartsWS {
 		JSONArray json = new JSONArray(jsonString);
 		Date date = new Date();
 		String userName = getUserName(json.toString());
-		System.out.println("USERNAME: " + userName);
-		
-		System.out.println("Request String: " + json.toString());
-		
-		int counter = 0;
-		String[] parts =  json.toString().split(":");
-		for(String s : parts){
-		System.out.println(counter + "Part: " +s.toString());
-		counter++;
-		}
-		
-		
+
+		// get json content and create cartBS
 		for(int i = 0; i < json.length()-1; ++i){
 
 			String str = json.get(i).toString();
-			
 			int amount = Integer.parseInt(getAmount(str));
 			String brand = getBrand(str);
 			String model = getModel(str);
 			double price = Double.parseDouble(getPrice(str));
-					
-			System.out.println("Anzahl: " + amount);
-			System.out.println("Automarke: " + brand);
-			System.out.println("Modell: " + model);
-			System.out.println("Preis: " + price);
 			
 			cartBS.createCart(userName, brand, model, amount, price, date);
 		}
 		
-
 		jsonString = null;
 		json = null;
 	}
@@ -94,9 +75,6 @@ public class CartsWS {
 		
 		String brand = null;
 		String[] parts = str.split(":");
-//		System.out.println("part15: " + parts[15]);
-//		System.out.println("part15 length: " + parts[15].length());
-//		System.out.println("do samma:" + (parts[15].length()-15));
 		brand = parts[15].substring(1,parts[15].length()-3);
 		return brand;
 	}
@@ -117,21 +95,11 @@ public class CartsWS {
 		return price;
 	}
 	
-
 	private String getUserName(String str){
 		
 		String userName = null;
 		String[] parts = str.split(":");
 		int partUserName = parts.length - 1;
-		
-		int counter = 0;
-		System.out.println("GETUSERNAME");
-
-		for(String s : parts){
-			System.out.println(counter + "Part: " +s.toString());
-			counter++;
-		}
-		
 		userName = parts[partUserName].substring(1,parts[partUserName].length()-3);		
 		return userName;
 	}

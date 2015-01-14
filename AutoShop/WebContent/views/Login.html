@@ -1,1 +1,31 @@
-Login
+<div class="login-container">
+	<h2>Login:</h2>
+	<p class="error">{{loginMessage}}</p>
+	<form class="loginform" role="form" name="loginform">
+		        
+        <label for="user_email">E-Mail: </label>
+        <input  type="email" 
+        		name="email" 
+        		class="form-control"  
+        		placeholder="Bitte E-Mail Adresse eingeben..."
+        		ng-model="user.email" 
+				required>
+		
+		<div ng-show="registrationform.email.$dirty && registrationform.email.$invalid">
+	        <p class="error" ng-show="registrationform.email.$error.required">
+	        	Sie m&uuml;ssen eine g&uuml;ltige E-Mail Adresse eingeben.
+	        </p>
+	        <p class="error" ng-show="registrationform.email.$error.email">
+	        	Dies ist keine g&uuml;ltige E-Mail Adresse.
+	        </p>
+        </div>
+        		
+		<label for="user_password">Passwort: </label>
+        <input type="password" placeholder="Bitte Passwort eingeben..." class="form-control" ng-model="user.passwort" required>
+        
+        <br>
+        <button class="btn btn-default" type="submit" ng-click="login(user)" ng-disabled="loginform.$invalid">Einloggen</button>
+	</form>
+	<br>
+	<p>Noch kein Kunde? Jetzt <a href="/autoshop/#/register">Registrieren!</a></p>
+</div>

@@ -14,8 +14,7 @@ public class CartBA {
 	@EJB
 	private CartDAO cartDAO;
 	
-	public void createCart(Cart cart){
-		
+	public void createCart(Cart cart){		
 		if(cartTrackerBA.equalCartExists(cart) == false){
 			cartTrackerBA.addCart(cart);
 			cartDAO.persist(cart);
