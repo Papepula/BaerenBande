@@ -1,0 +1,28 @@
+.image {
+	width: 150px;
+	height: 150px;
+	
+}
+.make_float{
+	float:left;
+}
+
+.car_picture_detail{
+	
+	top: 20px;
+	right: 20px;
+	float: right;
+	
+}
+#slides_control > div{
+  height: 200px;
+}
+.carouselImage{
+  margin:auto;
+  width: 400px;
+}
+#slides_control {
+ width: 450px; 
+ height: 500px;
+ display: table-cell;
+}

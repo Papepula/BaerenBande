@@ -1,0 +1,12 @@
+td {
+  vertical-align: middle;
+} 
+
+#totalPrice{
+	font-weight:bold;
+}
+
+#orderDiv{
+	float:right;
+	text-align: right;
+}

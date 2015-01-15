@@ -1,0 +1,42 @@
+<div ng-controller="SearchResultCtrl">
+	<div class="alert alert-success" role="alert">
+		Es wurden {{numberHits}} Treffer gefunden.
+	</div>
+	<div class="row" ng-repeat="hitsRow in hits">
+		<div class="colsm-6 col-md-4" ng-repeat="item in hitsRow">
+			<div class="thumbnail">
+				<img src="images/{{item.image}}" alt="...">
+				<div class="caption">
+					<h3>{{item.brand}} {{item.model}}</h3>
+					<p>Zustand: {{item.state}}</p>
+					<p>Preis: {{item.price | currency:'&euro;'}}</p>
+					
+					<p><a href="#/details/{{item.id}}" class="btn btn-default" role="button">Details</a> 
+					   <a ng-controller="CartCtrl" ng-click="addCar({{item}})" class="btn btn-default" role="button">In den Warenkorb</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+<!-- 
+	<div ng-repeat="item in hits">
+		<div class="make_float col-xs-4"> 
+			<img src="images/{{item.image}}"  class="image"> 
+		</div>
+		<div class="content make_float col-xs-6">
+			<p>{{item.brand}}</p>
+			<p>{{item.model}}</p>
+			<p>{{item.price}}</p>
+			<p>{{item.state}}</p>
+		</div>
+		<div class="details col-xs-4">
+			<a href="#/details">Details anzeigen</a>
+		</div>
+	</div>
+</div>  -->

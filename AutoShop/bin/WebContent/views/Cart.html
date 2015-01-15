@@ -1,0 +1,54 @@
+<div ng-show="cart.length == 0">
+    <h4>Ihr Warenkorb ist leer!</h4>
+</div>
+
+<div id="removeItem" class="alert alert-info alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <strong>{{ alertRemoveCar.car.brand}} {{ alertRemoveCar.car.model}}</strong> wurde aus dem Warenkorb entfernt!
+</div>
+
+<div ng-show="cart.length > 0">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Bild</th>
+				<th>Marke</th>
+				<th>Modell</th>
+				<th>Anzahl</th>
+				<th>Preis</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in cart">
+				<td><a href="#/details/{{item.car.id}}"><img src="images/{{item.car.image}}" style="width:90px; height:60px"/></a></td>
+				<td style="vertical-align:middle"><a href="#/details/{{item.car.id}}">{{item.car.brand}}</a></td>
+				<td style="vertical-align:middle"><a href="#/details/{{item.car.id}}">{{item.car.model}}</a></td>
+				<td style="vertical-align:middle">		 
+					<button ng-click="decreaseAmount($index)" type="button" class="btn btn-default"
+						aria-label="Left Align">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+					{{item.amount}}
+					<button ng-click="increaseAmount(item.car)" type="button" class="btn btn-default"
+						aria-label="Left Align">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+				</td>
+				<td style="vertical-align:middle">{{item.car.price * item.amount | currency:'&euro;'}}</td>
+				<td style="vertical-align:middle">		 
+					<button ng-click="removeCar($index)" type="button" class="btn btn-default"
+						aria-label="Left Align">
+						<span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div id="orderDiv">
+		<p id="totalPrice">Gesamt: {{ getPrice() | currency:'&euro;' }}</p>
+		<button class="btn btn-primary" onclick="javascript:window.location='#/order'">Bezahlen</button>
+	</div>
+	
+</div>
+

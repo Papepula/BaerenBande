@@ -1,0 +1,13 @@
+.orderImage {
+	vertiacl-align: middle;
+	float: left;
+	margin-left: 20px;
+}
+
+.orderState {
+	margin-left: 150px;
+}
+
+.orderDiv {
+	height: 130px;
+}
